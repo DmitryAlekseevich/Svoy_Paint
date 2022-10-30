@@ -45,6 +45,14 @@ namespace Svoy_Paint
 
         }
         private bool isMouse = false; // приватна€ переменна€
+
+        private ArrayPoints arrayPoints = new ArrayPoints(2); // экземпл€р класса. задаем тип, инициализируем, пишем изначальный размер
+
+        Bitmap map = new Bitmap(100, 100); //переменна€ котра€ отвечает за хранение изображени€
+        Graphics graphics;
+        Pen pen = new Pen(Color.Black, 3f); //создал карандаш c изначальным цветом и толщиной
+
+
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isMouse = true;
@@ -57,6 +65,13 @@ namespace Svoy_Paint
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            if(!isMouse) { return; } //рисуем только тогда, когда кнопка зажата
+
+            arrayPoints.SetPoint(e.X, e.Y); //задаем координаты заданой точки
+            if(arrayPoints.GetCountPoits() >=2)
+            {
+                graphics.DrawLines(arrayPoints.GetPoints()); 
+            }
 
         }
     }
