@@ -147,5 +147,10 @@ namespace Svoy_Paint
         {
             pen.Width = trackBar1.Value;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1 = new SaveFileDialog();
+        }
     }
 }
