@@ -127,5 +127,25 @@ namespace Svoy_Paint
         {
             pen.Color = ((Button)sender).BackColor;
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if(colorDialog1.ShowDialog() == DialogResult.OK) //если пользователь нажал на кнопку, то мы присваеваем карандашу:
+            {
+                pen.Color=colorDialog1.Color;
+                ((Button)sender).BackColor = colorDialog1.Color; //добавлена палитра
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(pictureBox1.BackColor); //очистка на цвет фона (pictureBox1)
+            pictureBox1.Image = map; 
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            pen.Width = trackBar1.Value;
+        }
     }
 }

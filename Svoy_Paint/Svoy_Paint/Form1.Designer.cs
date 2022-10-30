@@ -44,6 +44,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +80,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Очистить";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -196,6 +198,7 @@
             this.button11.TabIndex = 8;
             this.button11.Text = "Выбрать";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // panel1
             // 
@@ -222,9 +225,11 @@
             // 
             this.trackBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.trackBar1.Location = new System.Drawing.Point(0, 55);
+            this.trackBar1.Maximum = 30;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(150, 45);
             this.trackBar1.TabIndex = 0;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // Form1
             // 
@@ -265,5 +270,6 @@
         private Panel panel1;
         private Label label1;
         private TrackBar trackBar1;
+        private ColorDialog colorDialog1;
     }
 }
