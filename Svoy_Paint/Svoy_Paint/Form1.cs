@@ -18,7 +18,7 @@ namespace Svoy_Paint
                 points = new Point[size];
             }
 
-            public void SetPoint(int x,int y)
+            public void SetPoint(int x,int y) //задаем координаты точек
             {
                 if (index >= points.Length)
                 {
@@ -58,6 +58,9 @@ namespace Svoy_Paint
             Rectangle rectangle = Screen.PrimaryScreen.Bounds; //определяем размер экрана пользователя, (лайфхак украден у Кудея)
             map = new Bitmap(rectangle.Width, rectangle.Height); //полученое разрешения и задается map-у (ширина высота)
             graphics = Graphics.FromImage(map); //инициализируем график
+
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round; //команда для того что б линиия была закругленой (красота)
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
