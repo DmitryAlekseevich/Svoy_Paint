@@ -2,6 +2,7 @@ namespace Svoy_Paint
 {
     public partial class Form1 : Form
     {
+        Form f;
         public Form1()
         {
             InitializeComponent();
@@ -10,7 +11,7 @@ namespace Svoy_Paint
         private class ArrayPoints //создал массив точек c методами
         {
             private int index = 0; //изначальные координаты точки
-            private Point[] points; //сам массив где хранятся наши точки
+            private Point[] points; //сам массив где хранятся наши точки         
 
             public ArrayPoints(int size) //конструктор класса для задания размера
             {
@@ -158,6 +159,20 @@ namespace Svoy_Paint
                     pictureBox1.Image.Save(saveFileDialog1.FileName);
                 }
             }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Form2 newForm = new Form2();
+            newForm.Show();
+            //f = new Form();
+            //f.Show();
+
         }
     }
 }
