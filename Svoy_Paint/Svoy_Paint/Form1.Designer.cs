@@ -58,6 +58,9 @@
             this.pictureBox1.Size = new System.Drawing.Size(650, 450);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // button1
             // 
@@ -180,7 +183,7 @@
             this.button11.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.button11.Location = new System.Drawing.Point(3, 75);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(138, 38);
+            this.button11.Size = new System.Drawing.Size(138, 30);
             this.button11.TabIndex = 8;
             this.button11.Text = "Выбрать";
             this.button11.UseVisualStyleBackColor = false;
