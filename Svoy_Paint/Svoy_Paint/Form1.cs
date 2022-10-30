@@ -70,7 +70,9 @@ namespace Svoy_Paint
             arrayPoints.SetPoint(e.X, e.Y); //задаем координаты заданой точки
             if(arrayPoints.GetCountPoits() >=2)
             {
-                graphics.DrawLines(arrayPoints.GetPoints()); 
+                graphics.DrawLines(pen,arrayPoints.GetPoints());
+                pictureBox1.Image = map;
+                arrayPoints.SetPoint(e.X,e.Y);
             }
 
         }
