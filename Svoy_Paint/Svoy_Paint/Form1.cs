@@ -52,6 +52,12 @@ namespace Svoy_Paint
         Graphics graphics;
         Pen pen = new Pen(Color.Black, 3f); //создал карандаш c изначальным цветом и толщиной
 
+        private void SetSize()
+        {
+            Rectangle rectangle = Screen.PrimaryScreen.Bounds; //определяем размер экрана пользователя, (лайфхак украден у Кудея)
+            map = new Bitmap(rectangle.Width, rectangle.Height); //полученое разрешения и задается map-у (ширина высота)
+            graphics = Graphics.FromImage(map); //инициализируем график
+        }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
