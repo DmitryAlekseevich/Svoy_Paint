@@ -150,7 +150,14 @@ namespace Svoy_Paint
 
         private void button1_Click(object sender, EventArgs e)
         {
-            saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JPG(*.JPG)|*.jpg";
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if(pictureBox1.Image == null)
+                {
+                    pictureBox1.Image.Save(saveFileDialog1.FileName);
+                }
+            }
         }
     }
 }
