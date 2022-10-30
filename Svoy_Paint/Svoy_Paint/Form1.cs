@@ -26,6 +26,23 @@ namespace Svoy_Paint
                 points[index] = new Point(x, y);
                 index++;
             }
+
+            public void ResetPoints() //метод который сбрасывает наш индекс
+            {
+                index=0;
+            }
+
+            public int GetCountPoits() //метод для получения размера массива
+            {
+                return index;
+            }
+
+            public Point[] GetPoints() //метод который возвращает сам массив точек (что бы нарисовать рисунок)
+            {
+                return points;
+            }
+
+
         }
         private bool isMouse = false; // приватная переменная
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
