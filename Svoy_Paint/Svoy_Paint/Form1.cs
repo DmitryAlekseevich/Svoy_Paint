@@ -87,5 +87,45 @@ namespace Svoy_Paint
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            pen.Color = ((Button)sender).BackColor;
+        }
     }
 }
