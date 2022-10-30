@@ -46,18 +46,20 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(650, 450);
+            this.pictureBox1.Size = new System.Drawing.Size(800, 450);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -66,9 +68,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(663, 350);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(18, 350);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 42);
+            this.button1.Size = new System.Drawing.Size(170, 42);
             this.button1.TabIndex = 1;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
@@ -76,9 +79,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(663, 398);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(18, 398);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 40);
+            this.button2.Size = new System.Drawing.Size(170, 40);
             this.button2.TabIndex = 2;
             this.button2.Text = "Очистить";
             this.button2.UseVisualStyleBackColor = true;
@@ -97,9 +101,9 @@
             this.flowLayoutPanel1.Controls.Add(this.button10);
             this.flowLayoutPanel1.Controls.Add(this.button11);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(650, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 113);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 113);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // button3
@@ -151,7 +155,7 @@
             // 
             this.button7.BackColor = System.Drawing.Color.Blue;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(3, 39);
+            this.button7.Location = new System.Drawing.Point(147, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(30, 30);
             this.button7.TabIndex = 4;
@@ -162,7 +166,7 @@
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(39, 39);
+            this.button8.Location = new System.Drawing.Point(3, 39);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(30, 30);
             this.button8.TabIndex = 5;
@@ -173,7 +177,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.Teal;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(75, 39);
+            this.button9.Location = new System.Drawing.Point(39, 39);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(30, 30);
             this.button9.TabIndex = 6;
@@ -184,7 +188,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.Black;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(111, 39);
+            this.button10.Location = new System.Drawing.Point(75, 39);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(30, 30);
             this.button10.TabIndex = 7;
@@ -204,12 +208,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(650, 113);
+            this.panel1.Location = new System.Drawing.Point(0, 113);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 100);
+            this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -218,30 +222,39 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 52);
+            this.label1.Size = new System.Drawing.Size(200, 52);
             this.label1.TabIndex = 1;
             this.label1.Text = "У вас есть выбор!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // trackBar1
             // 
-            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.trackBar1.Location = new System.Drawing.Point(0, 55);
+            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.trackBar1.Location = new System.Drawing.Point(0, 52);
             this.trackBar1.Maximum = 30;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(150, 45);
+            this.trackBar1.Size = new System.Drawing.Size(200, 45);
             this.trackBar1.TabIndex = 0;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(600, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 450);
+            this.panel2.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "ГТА 6";
@@ -250,6 +263,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -274,5 +288,6 @@
         private TrackBar trackBar1;
         private ColorDialog colorDialog1;
         private SaveFileDialog saveFileDialog1;
+        private Panel panel2;
     }
 }
