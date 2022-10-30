@@ -5,6 +5,7 @@ namespace Svoy_Paint
         public Form1()
         {
             InitializeComponent();
+            SetSize(); //вызываем метод SetSize что б все работало  
         }
         private class ArrayPoints //создал массив точек c методами
         {
@@ -67,6 +68,7 @@ namespace Svoy_Paint
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isMouse = false;
+            arrayPoints.ResetPoints();  //когда мы отпускаем кнопку мыши, то метод ResetPoints мы должны сбросить (что б ничего не сохранять)
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
