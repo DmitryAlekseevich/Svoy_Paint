@@ -6,7 +6,7 @@ namespace Svoy_Paint
         public Form1()
         {
             InitializeComponent();
-            SetSize(); //вызываем метод SetSize что б все работало  
+            Size(); //вызываем метод Size что б все работало             
         }
         private class ArrayPoints //создал массив точек c методами
         {
@@ -19,7 +19,7 @@ namespace Svoy_Paint
                 points = new Point[size];
             }
 
-            public void SetPoint(int x,int y) //задаем координаты точек
+            public void Draw(int x,int y) //задаем координаты точек
             {
                 if (index >= points.Length)
                 {
@@ -52,9 +52,41 @@ namespace Svoy_Paint
 
         Bitmap map = new Bitmap(100, 100); //переменная котрая отвечает за хранение изображения
         Graphics graphics;
-        Pen pen = new Pen(Color.Black, 3f); //создал карандаш c изначальным цветом и толщиной
+        Pen pen = new Pen(Color.Black, 3f); //создал карандаш c изначальным цветом и толщиной (как по заданию: get { return Color.White;} не работало)
 
-        private void SetSize()
+        abstract class Brush
+        {
+            public Color BrushColor { get; set; }
+            public int Size { get; set; }   
+            public Brush(Color brushColor, int size)
+            {
+                BrushColor = brushColor;
+                Size = size;
+            }   
+            public abstract void Draw(Bitmap image, int x, int y); 
+        }
+
+        class QuadBrush : Brush
+        {
+            public QuadBrush(Color brushColor, int size)
+                : base(brushColor, size)
+            {
+
+            }
+
+            public override void Draw(Bitmap image, int x, int y)
+            {
+                for (int y0 = y - Size; y0 < y + Size; y0++)
+                {
+                    for(int x0 = x - Size; x0 < x + Size; x0++)
+                    {
+                        image.SetPixel(x0, y0, BrushColor);
+                    }
+                }
+            }
+        }
+
+        private void Size()
         {
             Rectangle rectangle = Screen.PrimaryScreen.Bounds; //определяем размер экрана пользователя, (лайфхак украден у Кудея)
             map = new Bitmap(rectangle.Width, rectangle.Height); //полученое разрешения и задается map-у (ширина высота)
@@ -79,12 +111,12 @@ namespace Svoy_Paint
         {
             if(!isMouse) { return; } //рисуем только тогда, когда кнопка зажата
 
-            arrayPoints.SetPoint(e.X, e.Y); //задаем координаты заданой точки
+            arrayPoints.Draw(e.X, e.Y); //задаем координаты заданой точки
             if(arrayPoints.GetCountPoits() >=2)
             {
                 graphics.DrawLines(pen,arrayPoints.GetPoints());
                 pictureBox1.Image = map;
-                arrayPoints.SetPoint(e.X,e.Y);
+                arrayPoints.Draw(e.X,e.Y);
             }
 
         }
@@ -146,7 +178,7 @@ namespace Svoy_Paint
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            pen.Width = trackBar1.Value;
+            pen.Width = trackBar1.Value; // толщина кисти (Ширина)
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -170,9 +202,6 @@ namespace Svoy_Paint
         {
             Form2 newForm = new Form2();
             newForm.Show();
-            //f = new Form();
-            //f.Show();
-
         }
     }
 }

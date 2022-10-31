@@ -47,6 +47,8 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -72,11 +74,11 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(0, 392);
+            this.button1.Location = new System.Drawing.Point(0, 388);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(216, 50);
+            this.button1.Size = new System.Drawing.Size(212, 50);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Сохранить";
+            this.button1.Text = "Сохранить файл";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -84,9 +86,9 @@
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(0, 442);
+            this.button2.Location = new System.Drawing.Point(0, 438);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 48);
+            this.button2.Size = new System.Drawing.Size(212, 48);
             this.button2.TabIndex = 2;
             this.button2.Text = "Очистить";
             this.button2.UseVisualStyleBackColor = true;
@@ -107,7 +109,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(216, 110);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(212, 110);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // button3
@@ -204,7 +206,7 @@
             this.button11.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.button11.Location = new System.Drawing.Point(3, 75);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(191, 30);
+            this.button11.Size = new System.Drawing.Size(204, 30);
             this.button11.TabIndex = 8;
             this.button11.Text = "Выбрать цвет самому";
             this.button11.UseVisualStyleBackColor = false;
@@ -217,7 +219,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 110);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 100);
+            this.panel1.Size = new System.Drawing.Size(212, 100);
             this.panel1.TabIndex = 4;
             // 
             // trackBar1
@@ -226,7 +228,7 @@
             this.trackBar1.Location = new System.Drawing.Point(0, 52);
             this.trackBar1.Maximum = 30;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(216, 45);
+            this.trackBar1.Size = new System.Drawing.Size(212, 45);
             this.trackBar1.TabIndex = 0;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
@@ -236,13 +238,16 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 52);
+            this.label1.Size = new System.Drawing.Size(212, 52);
             this.label1.TabIndex = 1;
             this.label1.Text = "У вас есть выбор! \r\n (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button15);
+            this.panel2.Controls.Add(this.button14);
             this.panel2.Controls.Add(this.button13);
             this.panel2.Controls.Add(this.button12);
             this.panel2.Controls.Add(this.panel1);
@@ -255,13 +260,35 @@
             this.panel2.Size = new System.Drawing.Size(216, 490);
             this.panel2.TabIndex = 5;
             // 
+            // button15
+            // 
+            this.button15.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button15.Location = new System.Drawing.Point(0, 205);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(212, 43);
+            this.button15.TabIndex = 8;
+            this.button15.Text = "Квадрат";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button14.Location = new System.Drawing.Point(0, 248);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(212, 45);
+            this.button14.TabIndex = 7;
+            this.button14.Text = "Круг";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
             // button13
             // 
             this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button13.Location = new System.Drawing.Point(0, 297);
+            this.button13.Location = new System.Drawing.Point(0, 293);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(216, 47);
+            this.button13.Size = new System.Drawing.Size(212, 47);
             this.button13.TabIndex = 6;
             this.button13.Text = "О программе";
             this.button13.UseVisualStyleBackColor = true;
@@ -271,9 +298,9 @@
             // 
             this.button12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button12.Location = new System.Drawing.Point(0, 344);
+            this.button12.Location = new System.Drawing.Point(0, 340);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(216, 48);
+            this.button12.Size = new System.Drawing.Size(212, 48);
             this.button12.TabIndex = 5;
             this.button12.Text = "Выход";
             this.button12.UseVisualStyleBackColor = true;
@@ -321,5 +348,7 @@
         private Panel panel2;
         private Button button13;
         private Button button12;
+        private Button button15;
+        private Button button14;
     }
 }
