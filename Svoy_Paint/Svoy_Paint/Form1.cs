@@ -2,6 +2,21 @@ namespace Svoy_Paint
 {
     public partial class Form1 : Form
     {
+        int _x;
+        int _y;
+        bool _mouseClicked = false; //мышь зажата
+
+        Color SelectedColor
+        {
+            get { return Color.Red; }
+        }
+
+        int SelectedSize
+        {
+            get { return trackBar1.Value; }
+        }
+        Brush _selectedBrush;  //выбранная кисть
+
         Form f;
         public Form1()
         {
@@ -92,8 +107,8 @@ namespace Svoy_Paint
             map = new Bitmap(rectangle.Width, rectangle.Height); //полученое разрешения и задается map-у (ширина высота)
             graphics = Graphics.FromImage(map); //инициализируем график
 
-            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round; //команда для того что б линиия была закругленой (красота)
-            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+            //pen.StartCap = System.Drawing.Drawing2D.LineCap.Round; //команда для того что б линиия была закругленой (красота)
+            //pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -202,6 +217,17 @@ namespace Svoy_Paint
         {
             Form2 newForm = new Form2();
             newForm.Show();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round; //команда для того что б линиия была закругленой (красота)
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
