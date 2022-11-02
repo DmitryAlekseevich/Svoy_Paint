@@ -11,6 +11,11 @@ namespace Svoy_Paint
             get { return Color.Red; }
         }
 
+        Color DefaultColor
+        {
+            get { return Color.White; }
+        }
+
         int SelectedSize
         {
             get { return trackBar1.Value; }
@@ -21,7 +26,26 @@ namespace Svoy_Paint
         public Form1()
         {
             InitializeComponent();
-            Size(); //вызываем метод Size что б все работало             
+            CreateBlank(pictureBox1.Width, pictureBox1.Height);
+            Size(); //вызываем метод Size что б все работало         
+        }
+
+        void CreateBlank(int width, int height)
+        {
+            var oldImage = pictureBox1.Image; 
+            var bmp = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    bmp.SetPixel(i, j, DefaultColor);
+                }
+            }
+            pictureBox1.Image = bmp;   
+            if (oldImage != null)
+            {
+                oldImage.Dispose();
+            }
         }
         private class ArrayPoints //создал массив точек c методами
         {
