@@ -63,7 +63,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1094, 490);
+            this.pictureBox1.Size = new System.Drawing.Size(1094, 494);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -74,7 +74,7 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(0, 388);
+            this.button1.Location = new System.Drawing.Point(0, 392);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 50);
             this.button1.TabIndex = 1;
@@ -86,7 +86,7 @@
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(0, 438);
+            this.button2.Location = new System.Drawing.Point(0, 442);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(212, 48);
             this.button2.TabIndex = 2;
@@ -257,14 +257,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(216, 490);
+            this.panel2.Size = new System.Drawing.Size(216, 494);
             this.panel2.TabIndex = 5;
             // 
             // button15
             // 
             this.button15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button15.Location = new System.Drawing.Point(0, 205);
+            this.button15.Location = new System.Drawing.Point(0, 209);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(212, 43);
             this.button15.TabIndex = 8;
@@ -276,7 +276,7 @@
             // 
             this.button14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button14.Location = new System.Drawing.Point(0, 248);
+            this.button14.Location = new System.Drawing.Point(0, 252);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(212, 45);
             this.button14.TabIndex = 7;
@@ -288,7 +288,7 @@
             // 
             this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button13.Location = new System.Drawing.Point(0, 293);
+            this.button13.Location = new System.Drawing.Point(0, 297);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(212, 47);
             this.button13.TabIndex = 6;
@@ -300,7 +300,7 @@
             // 
             this.button12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button12.Location = new System.Drawing.Point(0, 340);
+            this.button12.Location = new System.Drawing.Point(0, 344);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(212, 48);
             this.button12.TabIndex = 5;
@@ -312,7 +312,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 490);
+            this.ClientSize = new System.Drawing.Size(1094, 494);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";

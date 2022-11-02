@@ -227,7 +227,8 @@ namespace Svoy_Paint
 
         private void button14_Click(object sender, EventArgs e)
         {
-
-        }
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.Square; 
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.Square;
+        }     
     }
 }
