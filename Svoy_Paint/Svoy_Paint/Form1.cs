@@ -6,14 +6,14 @@ namespace Svoy_Paint
         int _y;
         bool _mouseClicked = false; //мышь зажата
 
-        Color SelectedColor
-        {
-            get { return Color.Red; }
-        }
-
         Color DefaultColor
         {
             get { return Color.White; }
+        }
+        Color SelectedColor
+        {
+
+            get { return Color.Red; }
         }
 
         int SelectedSize
@@ -22,11 +22,14 @@ namespace Svoy_Paint
         }
         Brush _selectedBrush;  //выбранная кисть
 
+        
+
         Form f;
         public Form1()
         {
             InitializeComponent();
             CreateBlank(pictureBox1.Width, pictureBox1.Height);
+
             Size(); //вызываем метод Size что б все работало         
         }
 
@@ -138,27 +141,38 @@ namespace Svoy_Paint
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             isMouse = true;
+            if (_selectedBrush == null)
+            {
+                return;
+            }
+
+            _selectedBrush.Draw(pictureBox1.Image as Bitmap, _x, _y);
+            pictureBox1.Refresh();
+
+            _mouseClicked = true;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             isMouse = false;
-            arrayPoints.ResetPoints();  //когда мы отпускаем кнопку мыши, то метод ResetPoints мы должны сбросить (что б ничего не сохранять)
+            arrayPoints.ResetPoints();  //когда мы отпускаем кнопку мыши, то метод ResetPoints мы должны сбросить (что б небыло такого, что нажимаешь на кнопку, а рисунок автоматически продолжается)
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if(!isMouse) { return; } //рисуем только тогда, когда кнопка зажата
+           if(!isMouse) { return; } //рисуем только тогда, когда кнопка зажата
 
-            arrayPoints.Draw(e.X, e.Y); //задаем координаты заданой точки
+           arrayPoints.Draw(e.X, e.Y); //задаем координаты заданой точки
             if(arrayPoints.GetCountPoits() >=2)
-            {
+           {
                 graphics.DrawLines(pen,arrayPoints.GetPoints());
                 pictureBox1.Image = map;
                 arrayPoints.Draw(e.X,e.Y);
             }
 
         }
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {

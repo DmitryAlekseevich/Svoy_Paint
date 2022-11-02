@@ -60,5 +60,6 @@
         #endregion
 
         private Label label1;
+        private Button button1;
     }
 }
