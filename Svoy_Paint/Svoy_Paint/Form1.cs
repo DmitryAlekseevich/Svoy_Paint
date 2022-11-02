@@ -149,11 +149,12 @@ namespace Svoy_Paint
             _selectedBrush.Draw(pictureBox1.Image as Bitmap, _x, _y);
             pictureBox1.Refresh();
 
-            _mouseClicked = true;
+           // _mouseClicked = true;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            //_mouseClicked = true;
             isMouse = false;
             arrayPoints.ResetPoints();  //когда мы отпускаем кнопку мыши, то метод ResetPoints мы должны сбросить (что б небыло такого, что нажимаешь на кнопку, а рисунок автоматически продолжается)
         }
@@ -162,13 +163,21 @@ namespace Svoy_Paint
         {
            if(!isMouse) { return; } //рисуем только тогда, когда кнопка зажата
 
-           arrayPoints.Draw(e.X, e.Y); //задаем координаты заданой точки
+            arrayPoints.Draw(e.X, e.Y); //задаем координаты заданой точки
             if(arrayPoints.GetCountPoits() >=2)
            {
                 graphics.DrawLines(pen,arrayPoints.GetPoints());
                 pictureBox1.Image = map;
                 arrayPoints.Draw(e.X,e.Y);
             }
+
+            //_x = e.X > 0 ? e.X : 0;
+            //_y = e.Y > 0 ? e.Y : 0;
+            //if (_mouseClicked)
+            //{
+            //    _selectedBrush.Draw(pictureBox1.Image as Bitmap, _x, _y);
+            //    pictureBox1.Refresh();
+            //}
 
         }
 
