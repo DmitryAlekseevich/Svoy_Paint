@@ -1,7 +1,11 @@
+using System.Runtime.CompilerServices;
+
 namespace Svoy_Paint
 {
     public partial class Form1 : Form
     {
+        Point p1, p2;
+
         int _x;
         int _y;
         bool _mouseClicked = false; //мышь зажата
@@ -10,11 +14,11 @@ namespace Svoy_Paint
         {
             get { return Color.White; }
         }
-        Color SelectedColor
-        {
+        //Color SelectedColor
+        //{
 
-            get { return Color.Red; }
-        }
+        //    get { return Color.Red; }
+        //}
 
         int SelectedSize
         {
@@ -22,15 +26,57 @@ namespace Svoy_Paint
         }
         Brush _selectedBrush;  //выбранная кисть
 
-        
-
         Form f;
+        Graphics g;
+        private int BrushType = 1;
         public Form1()
         {
             InitializeComponent();
             CreateBlank(pictureBox1.Width, pictureBox1.Height);
+            g = this.CreateGraphics();
 
             Size(); //вызываем метод Size что б все работало         
+
+            // создаем PictureBox
+            //var pic = new PictureBox { Dock = DockStyle.Fill, BackColor = Color.White };
+            //pic.MouseClick += pictureBox1_MouseClick;
+            //this.Controls.Add(pic);
+
+            // создаем панель для кнопок
+            var panel = new FlowLayoutPanel { Dock = DockStyle.Top, AutoSize = true };
+            this.Controls.Add(panel);
+
+            // кнопки
+            var btn = new RadioButton
+            {
+                Text = "Круг",
+                Tag = 1,
+                Appearance = Appearance.Button,
+                Checked = true,
+                AutoSize = true
+            };
+            btn.Click += button16_Click;
+            panel.Controls.Add(btn);
+
+            btn = new RadioButton
+            {
+                Text = "Не круг",
+                Tag = 2,
+                Appearance = Appearance.Button,
+                AutoSize = true
+            };
+            btn.Click += button16_Click;
+            panel.Controls.Add(btn);
+
+            btn = new RadioButton
+            {
+                Text = "Квадратный круг",
+                Tag = 3,
+                Appearance = Appearance.Button,
+                AutoSize = true
+            };
+            btn.Click += button16_Click;
+            panel.Controls.Add(btn);
         }
 
         void CreateBlank(int width, int height)
@@ -54,6 +100,14 @@ namespace Svoy_Paint
         {
             private int index = 0; //изначальные координаты точки
             private Point[] points; //сам массив где хранятся наши точки         
+
+            //public static void FillTriangle(this Graphics g, PaintEventArgs e, Point p, int size)
+            //{
+            //    e.Graphics.FillPolygon(Brushes.Aquamarine, new Point[] { p, new Point(p.X - size, p.Y + (int)(size * Math.Sqrt(3))), new Point(p.X + size, p.Y + (int)(size * Math.Sqrt(3))) });
+            //    e.Graphics.FillRightTriangle(e, new Point(50, 20), 100);
+            //    e.Graphics.FillTriangle(e, new Point(400, 20), 70);
+            //    e.Graphics.FillObtuseTriangle(e, new Point(230, 200), 50, 130);
+            //}
 
             public ArrayPoints(int size) //конструктор класса для задания размера
             {
@@ -95,6 +149,11 @@ namespace Svoy_Paint
         Bitmap map = new Bitmap(100, 100); //переменная котрая отвечает за хранение изображения
         Graphics graphics;
         Pen pen = new Pen(Color.Black, 3f); //создал карандаш c изначальным цветом и толщиной (как по заданию: get { return Color.White;} не работало)
+        private object myPoints2;
+        private object myPoints;
+        public bool FillPolygon;
+        public bool FillTriangle;
+
 
         abstract class Brush
         {
@@ -110,6 +169,8 @@ namespace Svoy_Paint
 
         class QuadBrush : Brush
         {
+
+
             public QuadBrush(Color brushColor, int size)
                 : base(brushColor, size)
             {
@@ -130,6 +191,11 @@ namespace Svoy_Paint
 
         private void Size()
         {
+            //int i;
+            //var g = pictureBox1.CreateGraphics();
+            //for (i = 40; i <= 300; i += 5)
+            //    g.DrawLine(Pens.Black, 300, i, 600, i);
+
             Rectangle rectangle = Screen.PrimaryScreen.Bounds; //определяем размер экрана пользователя, (лайфхак украден у Кудея)
             map = new Bitmap(rectangle.Width, rectangle.Height); //полученое разрешения и задается map-у (ширина высота)
             graphics = Graphics.FromImage(map); //инициализируем график
@@ -138,8 +204,16 @@ namespace Svoy_Paint
             //pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
         }
 
+        //public void mouse_paint() //кружок
+        //{
+        //    Graphics holst = this.CreateGraphics();
+        //    Pen pen = new Pen(Color.Green, 4.5f);
+        //    holst.DrawEllipse(pen, p1.X, p1.Y, p2.X, p2.Y);
+        //}
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            p1 = this.PointToClient(Cursor.Position); //кружок
+
             isMouse = true;
             if (_selectedBrush == null)
             {
@@ -154,11 +228,27 @@ namespace Svoy_Paint
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            p2 = this.PointToClient(Cursor.Position); //кружок
+            //mouse_paint();
+
             //_mouseClicked = true;
             isMouse = false;
             arrayPoints.ResetPoints();  //когда мы отпускаем кнопку мыши, то метод ResetPoints мы должны сбросить (что б небыло такого, что нажимаешь на кнопку, а рисунок автоматически продолжается)
+
         }
 
+        public static class Extensions
+        {
+            //public static void FillTriangle(this Graphics g, PaintEventArgs e, Point p, int size)
+            //{
+            //    e.Graphics.FillPolygon(Brushes.Aquamarine, new Point[] { p, new Point(p.X - size, p.Y + (int)(size * Math.Sqrt(3))), new Point(p.X + size, p.Y + (int)(size * Math.Sqrt(3))) });
+            //    e.Graphics.FillRightTriangle(e, new Point(50, 20), 100);
+            //    e.Graphics.FillTriangle(e, new Point(400, 20), 70);
+            //    e.Graphics.FillObtuseTriangle(e, new Point(230, 200), 50, 130);
+            //}
+
+        }
+      
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
            if(!isMouse) { return; } //рисуем только тогда, когда кнопка зажата
@@ -272,8 +362,78 @@ namespace Svoy_Paint
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
         }
 
+        private void button16_Click(object sender, EventArgs e)
+        {
+            var btn = (RadioButton)sender;
+            this.BrushType = (int)btn.Tag;
+
+            //Size();
+
+            //int i;
+            //for (i = 40; i <= 300; i += pictureBox1.Width)
+            //    g.DrawLine(Pens.Black, 300, i, 600, i);
+
+            //Bitmap bmp = new Bitmap(1500, 600);
+            //Graphics graph = Graphics.FromImage(bmp);
+            //Pen pen = new Pen(Color.Black, 40);
+            //graph.DrawLine(pen, 100, 100, 200, 200);
+            //pictureBox1.Image = bmp;
+
+            //Graphics pictureBox1 = this.CreateGraphics();
+            //Pen pen = new Pen(Color.Green, 4.5f);
+            //pictureBox1.DrawEllipse(pen, p1.X, p1.Y, p2.X, p2.Y);
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            // получаем ссылку на PictureBox
+            var pic = (PictureBox)sender;
+            // получаем Graphics из PictureBox
+            var g = pic.CreateGraphics();
+
+            if (this.BrushType == 2)
+            {
+                // рисуем не круглый квадрат
+                g.DrawRectangle(Pens.Black, e.X, e.Y, 50, 50);
+            }
+            else if (this.BrushType == 3)
+            {
+                // рисуем квадратный круг
+                Point[] points = new Point[6];
+                int half = 50 / 2;
+                int quart = 50 / 4;
+                points[0] = new Point(e.X + quart, e.Y);
+                points[1] = new Point(e.X + 50 - quart, e.Y);
+                points[2] = new Point(e.X + 50, e.Y + half);
+                points[3] = new Point(e.X + 50 - quart, e.Y + 50);
+                points[4] = new Point(e.X + quart, e.Y + 50);
+                points[5] = new Point(e.X, e.Y + half);
+                g.DrawPolygon(Pens.Black, points);
+            }
+            else
+            {
+                // рисуем эллипс
+                g.DrawEllipse(Pens.Black, e.X, e.Y, 50, 50);
+            }
+        }
+
         private void button14_Click(object sender, EventArgs e)
         {
+            //Color brushColor = Color.FromArgb(250 / 100 * 25, 255, 0, 0);
+            //System.Drawing.SolidBrush brush = new SolidBrush(brushColor);
+            //Point[] points = new Point[3];
+            //points[0] = new Point(0, 0);
+            //points[1] = new Point(pictureBox1.Width, pictureBox1.Height >> 1);
+            //points[2] = new Point(0, pictureBox1.Height);
+            //e.Graphics.FillPolygon(brush, points);
+
+            //Graphics g = e.graphics[2,3]; 
+
+            //System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+
+            //g.FillPolygon(myBrush, myPoints.ToArray());
+            //g.FillPolygon(myBrush, myPoints2.ToArray());
+
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Square; 
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Square;
         }     

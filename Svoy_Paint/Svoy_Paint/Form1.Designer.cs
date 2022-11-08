@@ -51,11 +51,13 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -66,6 +68,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(1094, 494);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -264,7 +267,7 @@
             // 
             this.button15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button15.Location = new System.Drawing.Point(0, 209);
+            this.button15.Location = new System.Drawing.Point(0, 213);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(212, 43);
             this.button15.TabIndex = 8;
@@ -276,9 +279,9 @@
             // 
             this.button14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button14.Location = new System.Drawing.Point(0, 252);
+            this.button14.Location = new System.Drawing.Point(0, 256);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(212, 45);
+            this.button14.Size = new System.Drawing.Size(212, 41);
             this.button14.TabIndex = 7;
             this.button14.Text = "Квадрат";
             this.button14.UseVisualStyleBackColor = true;
@@ -308,6 +311,11 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -323,6 +331,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,5 +361,6 @@
         private Button button12;
         private Button button15;
         private Button button14;
+        private FileSystemWatcher fileSystemWatcher1;
     }
 }
